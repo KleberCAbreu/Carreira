@@ -1,20 +1,9 @@
-<?php
-  require_once 'empresa_controller.php';
 
-  //cria um controlador
-  $controlador = new EmpresaController(); 
-
-  //obtem a lista de empresas do banco de dados.
-  $lista = $controlador->listar();
-
-?>
 <nav class="navbar sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Lista de Empresas</a>
   </div>
 </nav>
-
-
 
 <div class="container-fluid">
     <table class="table"> 
@@ -26,7 +15,7 @@
           </thead>  
           <tbody>
             <?php
-              foreach($lista as $empresa) {
+              foreach($controller->lista as $empresa) {
             ?>
              <tr>
                 <td><a href="#"><?=$empresa->getNome()?></a></td>
@@ -36,12 +25,11 @@
             <?php
               }
             ?>
-
-
           </tbody>  
-    </table> 
-    
+    </table>    
+
+
     <div id="div-add">
-              <a href="empresa/novo"><i class="fa fa-plus-square" aria-hidden="true"></i>
-    </div>
+       <a href="empresa/novo"><i class="fa fa-plus" aria-hidden="true"></i></a>
+    </div>  
 </div>    
